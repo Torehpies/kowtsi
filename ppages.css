@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: #2b3a55;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+header {
+  display: flex;
+  height: 200px;
+  width: 2000px;
+  background-color: #efe7e7;
+  border-style: solid;
+  border-top: 0px;
+  border-left: 0px;
+  border-color: #ce7777;
+  border-width: 5px;
+  z-index: 0;
+}
+
+#navbutton {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background-color: #efe7e7;
+  border: none;
+  display: block;
+  cursor: pointer;
+  transition: 0.4s;
+  z-index: 3;
+}
+
+#navbutton #navigline {
+  width: 30px;
+  height: 4px;
+  background: #ce7777;
+  margin: 5px 0;
+}
+
+#navbutton.active{
+  background-color: #e8c4c4;
+}
+
+#urnav {
+  position: absolute;
+  top: 0px;
+  left: -300px;
+  height: 1000px;
+  width: 200px;
+  background-color: #e8c4c4;
+  transition: 1s;
+  z-index: 2;
+  padding: 250px 30px;
+  transition: 0.5s;
+}
+
+#urnav a {
+  display: block;
+  padding: 12px 20px;
+  margin: 30px auto 0px;
+  font-size: 25px;
+  text-align: center;
+  background-color: #e8c4c4;
+  border-radius: 10px;
+  border-color: #ce7777;
+  border-style: solid;
+  border-width: 5px;
+  color: black;
+  text-decoration: none;
+}
+
+#urnav.active {
+  left: 0px;
+}
+
+#logo{
+  position: absolute;
+  top: 5px;
+  left: 80px;
+  height: 70px;
+  width: 70px;
+  background-color: #e8c4c4;
+  border-radius: 37px;
+  border-style: solid;
+  border-color: #ce7777;
+}
+
+#logo img {
+  position: relative;
+  top: 9px;
+  left: 11px;
+  height: 50px;
+  width: 50px;
+  background-color: #e8c4c4;
+}
+
+#profsection {
+  display: flex;
+  position: absolute;
+  left: 20px;
+  top: 90px;
+  height: 300px;
+  width: 1875px;
+  background-color: #e8c4c4;
+  border-radius: 30px;
+  border: solid #ce7777 5px;
+  z-index: 1;
+}
+
+#dp {
+  position: absolute;
+  top: 25px;
+  left: 25px;
+  height: 250px;
+  width: 250px;
+  border-radius: 125px;
+  background-color: #2b3a55;
+}
+
+#name {
+  position: relative;
+  top: 50px;
+  left: 300px;
+  height: 50px;
+  width: 400px;
+  background-color: #efe7e7;
+}
+
+#aboutuser {
+  position: absolute;
+  top: 120px;
+  left: 300px;
+  height: 160px;
+  width: 1305px;
+  background-color: #efe7e7;
+  border-radius: 0px 0px 25px 0px;
+}
+
+#postsection {
+  display: flex;
+  position: absolute;
+  left: 20px;
+  top: 420px;
+  height: 800px;
+  width: 1875px;
+  background-color: #e8c4c4;
+  border: solid #ce7777 5px;
+}
+
+#posting {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 300px;
+  width: 1580px;
+  background-color: #efe7e7;
+  border-radius: 25px;
+}
+
+@media only screen and (max-width: 1500px)
+{
+
+}
