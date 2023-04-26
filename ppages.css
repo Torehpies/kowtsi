@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+html{
+  width: 100%;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  background-color: #2b3a55;
+}
+
+.content{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+header {
+  height: 100px;
+  width: 100%;
+  background-color: #efe7e7;
+  border-style: solid;
+  border-left: 0px;
+  border-top: 0px;
+  border-color: #ce7777;
+  border-width: 5px;
+  display: flex;
+  gap: 10px;
+}
+
+span{
+  background-color: transparent;
+}
+
+#navbutton {
+  margin-left: 25px;
+  cursor: pointer;
+  border: none;
+  transition: 0.4s;
+  z-index: 3;
+  background-color: #f2e5e5;
+  height: 20px;
+}
+
+#navbutton.active {
+  background-color: #e8c4c4;
+}
+
+#logo{
+  min-width: 48px;
+  height: 48px;
+  background-color: #f2e5e5;
+}
+
+#urnav {
+  position: absolute;
+  top: 0px;
+  left: -300px;
+  height: 100%;
+  width: 200px;
+  background-color: #e8c4c4;
+  transition: 1s;
+  z-index: 2;
+  padding: 50px 30px;
+  transition: 0.5s;
+}
+
+#urnav a {  
+  display: block;
+  padding: 10px 20px;
+  margin: 20px auto 0px;
+  font-size: 18px;
+  background-color: #e8c4c4;
+  border-radius: 10px;
+  border-color: #ce7777;
+  border-style: solid;
+  border-width: 3px;
+  color: black;
+  text-decoration: none;
+}
+
+#urnav a:hover{
+  background-color: #ce7777;
+  color: #f2e5e5;
+}
+
+#urnav span{
+  display: inline;
+  vertical-align: top;
+  margin-right: 5px;
+}
+
+#urnav.active {
+  left: 0px;
+}
+
+#profsection {
+  height: 300px;
+  width: 95%;
+  background-color: #e8c4c4;
+  border-radius: 30px;
+  border: solid #ce7777 3px;
+  margin: 15px auto 0;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+#dp {
+  height: 200px;
+  min-width: 200px;
+  border-radius: 50%;
+  background-color: #2b3a55;
+  margin: 0 10px;
+}
+
+#profText{
+  background-color: #e8c4c4;
+  width: 100%;
+  margin: 0 10px 0 0;
+}
+
+#name {
+  height: 50px;
+  width: 60%;
+  background-color: #efe7e7;
+}
+
+#aboutuser {
+  height: 160px;
+  margin: 10px 0 0;
+  width: 100%;
+  background-color: #efe7e7;
+  border-radius: 0px 0px 25px 0px;
+}
+
+#postsection {
+  height: 800px;
+  width: 95%;
+  background-color: #e8c4c4;
+  border: solid #ce7777 3px;
+  margin: 15px auto 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+#posting {
+  width: 95%;
+  background-color: #efe7e7;
+  border-radius: 25px;
+}
+
+@media only screen and (max-width: 1500px)
+{
+
+}
