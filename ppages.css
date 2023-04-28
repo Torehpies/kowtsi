@@ -38,7 +38,8 @@ span{
 }
 
 #navbutton {
-  margin-left: 25px;
+  margin-top: 35px;
+  margin-left: 30px;
   cursor: pointer;
   border: none;
   transition: 0.4s;
@@ -52,9 +53,19 @@ span{
 }
 
 #logo{
+  margin-top: 20px;
+  margin-left: 50px;
+  padding: 0;
   min-width: 48px;
   height: 48px;
   background-color: #f2e5e5;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  z-index: 3;
+}
+
+#logo.active{
+  background-color: #e8c4c4;
 }
 
 #urnav {
@@ -66,8 +77,9 @@ span{
   background-color: #e8c4c4;
   transition: 1s;
   z-index: 2;
-  padding: 50px 30px;
-  transition: 0.5s;
+  padding: 100px 30px;
+  transition: 0.4s;
+  transition-timing-function: ease-in-out;
 }
 
 #urnav a {  
@@ -154,9 +166,4 @@ span{
   width: 95%;
   background-color: #efe7e7;
   border-radius: 25px;
-}
-
-@media only screen and (max-width: 1500px)
-{
-
 }
