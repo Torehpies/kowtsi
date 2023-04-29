@@ -8,8 +8,8 @@
     <section>
         <div class= "form-box">
             <div class="form-value">
-                <form action= "login.php" method = "post">
-                    <h2><div class="K"> <img src="logo.png" width = "70px" height="70px"></div>Login</h2>
+                <form action= "register.php" method = "post">
+                    <h2><div class="K"> <img src="logo.png" width = "70px" height="70px"></div>Register</h2>
                     <div class="input-box">
                         <ion-icon name="mail-outline"></ion-icon>
                         <input type="email" id = "email" name = "email" required>
@@ -20,12 +20,24 @@
                         <input type="password" id = "password" name = "password" required>
                         <label for="password">Password</label>
                     </div>
-                    <button type = "submit">Login</button>
-                    <p>Don't have an account? <a href = "Register.html" class = "login">Register</a></p>
+
+                    <div class="input-box">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                        <input type="password" id = "password" name = "confirm_password" required>
+                        <label for="password">Confirm Password</label>
+                    </div>
+
+                    <button type = "submit">Register</button>
+                    <p>Already have an account? <a href = "Login.html" class = "login">Login</a></p>
                 </form>
+                
             </div>
         </div>
+
+        
     </section>
+
+    
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
