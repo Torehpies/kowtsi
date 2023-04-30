@@ -5,11 +5,13 @@
     list-style: none;
     box-sizing:border-box;
 }
+
 body{
     display: flex;
     font-family: 'Open Sans', sans-serif;
     color: #2B3A55;
 }
+
 label.logo{
     color: transparent;
     font-size: 30px;
@@ -27,6 +29,7 @@ label.logo{
     margin-left: 15px;
     cursor: pointer;
 }
+
 #check{
     display: none;
 }
@@ -39,22 +42,27 @@ label.logo{
     cursor: pointer;
     margin: 3px;
 }
+
 .btn1,.btn2{
     color: #2B3A55;
 }
+
 .btn3, .btn4{
     color: #2B3A55;
 }
+
 .btn1:hover,.btn2:hover{
     color: #E8C4C4;
     border: #2B3A55;
     background-color: #2B3A55;
 }
+
 .btn3:hover,.btn4:hover{
     color: #E8C4C4;
     border: #2B3A55;
     background-color: #2B3A55;
 }
+
 .container {
     
     width: 83vw;
@@ -71,6 +79,7 @@ label.logo{
     left: 265px;
     
 }
+
 .navigation{
   position: fixed;
   left: 0;
