@@ -15,7 +15,8 @@
   $conn = mysqli_connect($dbuser, $dbname, $dbpassword, $dbtable);
 
   //Check connection
-  if ($conn-> connect_error) {
+  if ($conn-> connect_error) 
+  {
     die("\nConnection failed!: " . $conn->connect_error);
   }
 
@@ -51,6 +52,8 @@
       echo "<h2>Account does not exist</h2>";
     }
   }
+
+  $conn -> close();
 
   
 

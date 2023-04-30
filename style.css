@@ -13,6 +13,7 @@ section{
     min-height: 100vh;
     width: 100%;
     background: #E8C4C4;
+    
 }
 .form-box{
     position: relative;
@@ -79,5 +80,16 @@ button{
     font-size: 1em;
     font-weight: 600;
     color: white;
+}
+
+.login {
+    color: #2B3A55;
+}
+
+p {
+    color: #2B3A55;
+    font-size: 0.8em;
+    text-align: center;
+    margin-top: 0.5rem;
 }
 
