@@ -13,15 +13,21 @@
     <title>Login</title>
 </head>
 <body>
-  <div class="navigation">
-    <ul class="navigation-items">
-      <li><img src = ".\img\kowtsi_logo.ico" id="logo"></li>
-      <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
-      <li><a href="profpages.html"><i class="fa-solid fa-user fa-fw"></i>Profile</a></li>
-      <li><a href=""><i class="fa-solid fa-bell fa-fw"></i>Notify</a></li>  
-      <li><a href="Login.html"><i class="fa-solid fa-arrow-right-from-bracket fa-fw"></i>Logout</a></li>  
-    </ul>
+  <header>
+    <button id = "navbutton" onclick = "shata()">
+      <span class="material-symbols-outlined">menu</span> 
+    </button>
+    <img id = "logo" src = ".\img\kowtsi_logo.ico">
+  </header>
+  <div class = "content">
+    <nav id = "urnav">
+    <a href = "index.html"><span class="material-symbols-outlined">home</span>Home</a>
+    <a href = "profpages.html"><span class="material-symbols-outlined">account_circle</span>Profile</a>
+    <a href = "Notif"><span class="material-symbols-outlined">notifications</span>Notifications</a>
+    <a href = "Login.html"><span class="material-symbols-outlined">logout</span>Logout</a>
+    </nav>
   </div>
+     
 
     <div class="container">
         <div class="post-container">
@@ -130,5 +136,6 @@
     
         
     
+    <script src = "Profpg.js"></script>
 </body>
 </html>
