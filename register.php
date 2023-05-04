@@ -9,7 +9,7 @@
     $dbname = "root";
     $dbuser = "localhost";
     $dbpassword = "";
-    $dbtable = "user";
+    $dbtable = "kowtsi_db";
 
     //Connect to database
     $conn = mysqli_connect($dbuser, $dbname, $dbpassword, $dbtable);
@@ -21,7 +21,7 @@
     }
 
     //Check if the email already exists within the database
-    $stmt = $conn -> prepare("SELECT * FROM `data` WHERE email = ?");
+    $stmt = $conn -> prepare("SELECT * FROM `user_credentials` WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $stmt_result = $stmt->get_result();
@@ -46,7 +46,7 @@
     {
         //Pop up message
         echo '<script>alert("Registration successful")</script>';
-        $stmt = $conn -> prepare("INSERT INTO `data` (email, password) VALUES (?, ?)");
+        $stmt = $conn -> prepare("INSERT INTO `user_credentials` (email, password) VALUES (?, ?)");
         $stmt->bind_param("ss", $email, $password);
         $stmt->execute();
 

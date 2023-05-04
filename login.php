@@ -9,7 +9,7 @@
   $dbname = "root";
   $dbuser = "localhost";
   $dbpassword = "";
-  $dbtable = "user";
+  $dbtable = "kowtsi_db";
 
   //Connect to database
   $conn = mysqli_connect($dbuser, $dbname, $dbpassword, $dbtable);
@@ -22,7 +22,7 @@
 
   else
   {
-    $stmt = $conn -> prepare("SELECT * FROM `data` WHERE email = ?");
+    $stmt = $conn -> prepare("SELECT * FROM `user_credentials` WHERE email = ?");
     //Yung ? sa taas ay dito ata ginagamit sa $email
     $stmt->bind_param("s", $email);
     $stmt->execute();
@@ -35,7 +35,7 @@
       //Check if the password on the database is the same on MySQL
       if ($data['Password'] === $password)
       {
-        header('Location: index.html');
+        header('Location: Main_sec.html');
         exit;
       }
 
