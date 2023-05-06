@@ -111,46 +111,44 @@
     left: 0px;
   }
   
-  #uploadsection {
-    height: 250px;
+  #uploadSection {
+    height: 175px;
     width: 70%;
     background-color: #e8c4c4;
     border-radius: 30px;
-    border: solid #ce7777 3px;
-    margin: 15px auto 0;
+    border: solid #ce7777 2px;
+    margin: 10px auto 0;
     display: flex;
     align-items: center;
     justify-items: center;
   }
 
-  .post-container {
-    align-items: center;
-    padding: 35px 20px 20px 20px;
-    margin-left: 100px;
-    height: 120px;
-    width: 1100px;
-    border-radius: 10px;
-    background-color: #efe7e7;
+  #postForm{
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
   }
 
-  #bar {
-    width: 950px;
-    height: 100px;
-    margin-left: 10px;
+  #postText {
+    width: 90%;
+    margin: 0 auto;
+    height: 75px;
     text-align: center;
     border-radius: 20px;
   }
 
-  #post {
-    height: 100px;
-    width: 110px;
+  #postButton {
+    height: 50px;
+    width: 100px;
+    margin: 10px 5% 0 auto;
     background-color: #2b3a55;
     color:aliceblue;
     border-radius: 10px;
-    margin-left: 10px;
   }
   
-  #postsection {
+  #postSection {
     height: 800px;
     width: 95%;
     background-color: #e8c4c4;
