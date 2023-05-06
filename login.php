@@ -33,7 +33,7 @@
       $data = $stmt_result -> fetch_assoc();
 
       //Check if the password on the database is the same on MySQL
-      if ($data['Password'] === $password)
+      if ($data['password'] === $password)
       {
         header('Location: Main_sec.html');
         exit;
