@@ -35,7 +35,7 @@
       //Check if the password on the database is the same on MySQL
       if ($data['password'] === $password)
       {
-        header('Location: Main_sec.html');
+        header('Location: homepage.html');
         exit;
       }
 
