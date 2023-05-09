@@ -31,20 +31,34 @@
 			//checking if the passwords match
 		}
 
-		// if the form is error free, then register the user
-		if (count($errors) == 0) {
-			$password = md5($password_1);//password encryption to increase data security
-			$query = "INSERT INTO user_credentials(username, email, password) 
-					  VALUES('$username', '$email', '$password')"; //inserting data into table
-			mysqli_query($db, $query);
+		//Check niya yung database natin gamit yung email na variable sa itaas
+		//Tapos mag-pprepare ng query para sa database para icheck
+		$sql = "SELECT * FROM user_credentials WHERE email = '$email'";
+		$result = $db -> query($sql);
 
-			//storing username of the logged in user, in the session variable
-			$_SESSION['username'] = $username;
-			$_SESSION['success'] = "You have logged in"; //welcome message
-			header('location: homepage.html'); 
-			//page on which the user will be redirected after logging in
+		if ($result -> num_rows > 0)
+		{
+			//Mag eexecute to pag nag eexist na yung email within the database
+			//Go back to login page
+			array_push($errors, "Email already exists!");
 		}
 
+		else
+		{
+			// if the form is error free, then register the user
+			if (count($errors) == 0) {
+				$password = md5($password_1);//password encryption to increase data security
+				$query = "INSERT INTO user_credentials(username, email, password) 
+						VALUES('$username', '$email', '$password')"; //inserting data into table
+				mysqli_query($db, $query);
+
+				//storing username of the logged in user, in the session variable
+				$_SESSION['username'] = $username;
+				$_SESSION['success'] = "You have logged in"; //welcome message
+				header('location: homepage.html'); 
+				//page on which the user will be redirected after logging in
+			}
+		}
 	}
 
 	// user login
