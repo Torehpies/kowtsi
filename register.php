@@ -1,59 +1,57 @@
-<?php
-    session_start();
+<?php include('server.php')?>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel= "stylesheet" href="login_register.css">
+    <title>Kowtsi | Register</title>
+    <link rel="shortcut icon" href="img/kowtsi_logo.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section>
+        <div class= "form-box">
+            <div class="form-value">
+                <form action= "register.php" method = "post">
 
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
+                    <h2><div class="K"> <img src="img/kowtsi_logo.ico" width = "70px" height="70px"></div>Register</h2>
 
-    //Prepare SQL statement
-    $dbname = "root";
-    $dbuser = "localhost";
-    $dbpassword = "";
-    $dbtable = "kowtsi_db";
+                    <?php include('errors.php'); ?>
 
-    //Connect to database
-    $conn = mysqli_connect($dbuser, $dbname, $dbpassword, $dbtable);
+                    <div class="input-box">
+                        <input type="text" id = "username" name = "username" required>
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="email" id = "email" name = "email" required>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" id = "password" name = "password_1" required>
+                        <label for="password">Password</label>
+                    </div>
 
-    //Check connection
-    if ($conn -> connect_error) 
-    {
-        die("\nConnection failed!: " . $conn->connect_error);
-    }
+                    <div class="input-box">
+                        <input type="password" id = "password" name = "password_2" required>
+                        <label for="password">Confirm Password</label>
+                    </div>
 
-    //Check if the email already exists within the database
-    $stmt = $conn -> prepare("SELECT * FROM `user_credentials` WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $stmt_result = $stmt->get_result();
+                    <button type = "submit" name = "reg_user">Register</button>
+                    <p>Already have an account? <a href = "login.html" class = "login">Login</a></p>
+                </form>
+                
+            </div>
+        </div>
 
-    if ($stmt_result -> num_rows > 0)
-    {
-        echo "Email already exists!";
-        exit;
         
-    }
+    </section>
 
-    //Check if the password and confirm password are the same
-    if (strcmp($password, $confirm_password) != 0) 
-    {
-        //Pag hindi same yung password mag eexecute to
-        header('Location: register.html');
-        echo '<script>alert("Password does not match. Retry again")</script>';
-        exit;
-    } 
+    
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    else 
-    {
-        //Pop up message
-        echo '<script>alert("Registration successful")</script>';
-        $stmt = $conn -> prepare("INSERT INTO `user_credentials` (email, password) VALUES (?, ?)");
-        $stmt->bind_param("ss", $email, $password);
-        $stmt->execute();
 
-        //Redirect to login page
-        header('Location: login.html');
-        exit;
-    }
 
-    $conn -> close();
-?>
+</body>
+</html>
