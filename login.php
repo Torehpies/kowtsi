@@ -21,7 +21,7 @@
                         <label for="username">Username</label>
                     </div>
                     <div class="input-box">
-                        <input type="password" id = "password" name = "password" required>
+                        <input type="password" minlength = "8" maxlength = "16" id = "password" name = "password" required>
                         <label for="password">Password</label>
                     </div>
                     <button type = "submit" name = "login_user">Login</button>

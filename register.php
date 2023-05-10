@@ -28,12 +28,12 @@
                         <label for="email">Email</label>
                     </div>
                     <div class="input-box">
-                        <input type="password" id = "password" name = "password_1" required>
+                        <input type="password" minlength = "8" maxlength = "16" id = "password" name = "password_1" required>
                         <label for="password">Password</label>
                     </div>
 
                     <div class="input-box">
-                        <input type="password" id = "password" name = "password_2" required>
+                        <input type="password" minlength = "8" maxlength = "16" id = "password" name = "password_2" required>
                         <label for="password">Confirm Password</label>
                     </div>
 

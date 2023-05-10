@@ -4,7 +4,9 @@
 	// declaring and hoisting the variables
 	$username = "";
 	$email    = "";
+	$text = "";
 	$errors = array(); 
+	$post_date = "";
 	$_SESSION['success'] = "";
 
 	// DBMS connection code -> hostname, username, password, database name
@@ -36,12 +38,20 @@
 		$sql = "SELECT * FROM user_credentials WHERE email = '$email'";
 		$result = $db -> query($sql);
 
+		$check_username = "SELECT * FROM user_credentials WHERE username = '$username'";
+        $result2 = $db -> query($check_username);
+
 		if ($result -> num_rows > 0)
 		{
 			//Mag eexecute to pag nag eexist na yung email within the database
 			//Go back to login page
 			array_push($errors, "Email already exists!");
-		}
+		} 
+		
+		elseif ($result2 -> num_rows > 0) 
+        {
+            array_push($errors, "Username already exists!");
+        }
 
 		else
 		{
@@ -90,6 +100,23 @@
 			}else {
 				array_push($errors, "Username or password incorrect"); 
 				//if the username and password doesn't match
+			}
+		}
+	}
+
+	if (isset($_POST['post_user'])) {
+		$text = mysqli_real_escape_string($db, $_POST['post']);
+
+		if (empty($text)) {
+			array_push($errors, "No post has been posted.");
+		}
+
+		else {
+			if (count($errors) == 0) {
+				$post_date = date("Y-m-d h:i A");
+				$query = "INSERT INTO quotes(postID, userID, text, dateAndTime) 
+						VALUES('$text',)"; //inserting data into table
+				mysqli_query($db, $query);
 			}
 		}
 	}
