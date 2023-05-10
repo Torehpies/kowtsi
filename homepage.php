@@ -49,7 +49,7 @@
 
     <div id = uploadSection>
       <form action = "homepage.php" method = "post" id = "postForm">
-        <input id = "postText" name = "post" type = "text" placeholder = "Write some quotes" >
+        <input id = "postText" name = "post" type = "text" placeholder = "Write some quotes" required>
         <button type = "submit" name = "post_user" id = "postButton">Post</button>
       </form>
     </div>
