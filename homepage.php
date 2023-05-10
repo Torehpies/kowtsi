@@ -1,3 +1,22 @@
+<?php 
+	session_start(); //starting the session, to use and store data in session variable
+
+	//if the session variable is empty, this means the user is yet to login
+	//user will be sent to 'login.php' page to allow the user to login
+	if (!isset($_SESSION['username'])) {
+		$_SESSION['msg'] = "You have to log in first";
+		header('location: login.php');
+	}
+
+	// logout button will destroy the session, and will unset the session variables
+	//user will be headed to 'login.php' after loggin out
+	if (isset($_GET['logout'])) {
+		session_destroy();
+		unset($_SESSION['username']);
+		header("location: login.php");
+	}
+
+?>
 <!DOCTYPE html>
 <html lang = "en">
 <head>
@@ -12,10 +31,13 @@
 
 <body>
   <header>
+    <?php  if (isset($_SESSION['username'])) : ?>
     <button id = "navbutton" onclick = "shata()">
       <span class="material-symbols-outlined">menu</span> 
     </button>
     <img id = "logo" src = ".\img\kowtsi_logo.ico">
+    <p><?php echo $_SESSION['username']; ?></p>
+    <?php endif ?>
   </header>
   <div class="content">
     <nav id = "urnav">

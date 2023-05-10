@@ -55,7 +55,7 @@
 				//storing username of the logged in user, in the session variable
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You have logged in"; //welcome message
-				header('location: homepage.html'); 
+				header('location: homepage.php'); 
 				//page on which the user will be redirected after logging in
 			}
 		}
@@ -85,7 +85,7 @@
 			if (mysqli_num_rows($results) == 1) {
 				$_SESSION['username'] = $username; //storing username in session variable
 				$_SESSION['success'] = "You have logged in!"; //welcome message
-				header('location: homepage.html'); //page on which the user is sent to after logging in
+				header('location: homepage.php'); //page on which the user is sent to after logging in
 			}else {
 				array_push($errors, "Username or password incorrect"); 
 				//if the username and password doesn't match

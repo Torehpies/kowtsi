@@ -38,7 +38,7 @@
                     </div>
 
                     <button type = "submit" name = "reg_user">Register</button>
-                    <p>Already have an account? <a href = "login.html" class = "login">Login</a></p>
+                    <p>Already have an account? <a href = "login.php" class = "login">Login</a></p>
                 </form>
                 
             </div>
