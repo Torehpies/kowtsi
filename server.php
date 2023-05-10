@@ -46,10 +46,11 @@
 		else
 		{
 			// if the form is error free, then register the user
-			if (count($errors) == 0) {
+          if (count($errors) == 0) {
+                $register_date = date("Y-m-d");
 				$password = md5($password_1);//password encryption to increase data security
-				$query = "INSERT INTO user_credentials(username, email, password) 
-						VALUES('$username', '$email', '$password')"; //inserting data into table
+				$query = "INSERT INTO user_credentials(username, email, password, register_date) 
+						VALUES('$username', '$email', '$password', '$register_date')"; //inserting data into table
 				mysqli_query($db, $query);
 
 				//storing username of the logged in user, in the session variable
