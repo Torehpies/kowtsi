@@ -106,19 +106,13 @@
 
 	if (isset($_POST['post_user'])) {
 		$text = mysqli_real_escape_string($db, $_POST['post']);
-
-		if (empty($text)) {
-			array_push($errors, "No post has been posted.");
-		}
-
-		else {
-			if (count($errors) == 0) {
-				$post_date = date("Y-m-d h:i A");
-				$query = "INSERT INTO quotes(postID, userID, text, dateAndTime) 
-						VALUES('$text',)"; //inserting data into table
+		date_default_timezone_set('Asia/Manila');
+		$post_date = date("Y-m-d h:i A");
+		$query = "INSERT INTO quotes (text, dateAndTime)
+					VALUES ('$text', '$post_date')";
 				mysqli_query($db, $query);
-			}
-		}
+
+				header('location: homepage.php'); 
 	}
 
 ?>

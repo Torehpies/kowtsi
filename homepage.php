@@ -48,7 +48,7 @@
     </nav>
 
     <div id = uploadSection>
-      <form action = "homepage.php" method = "post" id = "postForm">
+      <form action = "server.php" method = "post" id = "postForm">
         <input id = "postText" name = "post" type = "text" placeholder = "Write some quotes" >
         <button type = "submit" name = "post_user" id = "postButton">Post</button>
       </form>
