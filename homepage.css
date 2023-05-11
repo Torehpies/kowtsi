@@ -31,6 +31,20 @@
     border-width: 5px;
     display: flex;
     gap: 10px;
+    justify-content: space-between;
+  }
+  .name{
+    height: 100%;
+    width: 200px;
+    padding-left:200px ;
+    padding-right: 20px;
+    background-color: antiquewhite;
+    position: absolute;
+  } #name p{
+    margin-top: 20px;
+    font-size: 30px;
+    color: black;
+    float:right;
   }
   
   span{
@@ -54,7 +68,7 @@
   
   #logo{
     margin-top: 20px;
-    margin-left: 50px;
+    margin-left: -1000px;
     padding: 0;
     min-width: 48px;
     height: 48px;

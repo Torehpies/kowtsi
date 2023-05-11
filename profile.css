@@ -141,6 +141,14 @@ span{
   height: 50px;
   width: 60%;
   background-color: #efe7e7;
+  border-radius: 0px 10px 10px 0px;
+} #name p{
+  font-size: 27px;
+  color: black;
+  float: left;
+  font-family: 'Quicksand', sans-serif;
+  background-color: transparent;
+  height: 100%;
 }
 
 #aboutuser {

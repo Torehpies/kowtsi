@@ -36,9 +36,11 @@
       <span class="material-symbols-outlined">menu</span> 
     </button>
     <img id = "logo" src = ".\img\kowtsi_logo.ico">
-    <p><?php echo $_SESSION['username']; ?></p>
-    <?php endif ?>
+    <div id= "name"> <p><?php echo $_SESSION['username']; ?></p></div>
+<?php endif ?>
+
   </header>
+
   <div class="content">
     <nav id = "urnav">
       <a href = "homepage.php"><span class="material-symbols-outlined">home</span>Home</a>
