@@ -12,7 +12,12 @@
         echo "<div class = 'test'>";
         echo "<h2 class = 'author'>" . $row['userID'] . $row['dateAndTime'] . "</h2>";
         echo "<h2>" . $row['text'] . "</h2>";
-        echo "<p>" . "Like " . $row['upvote'] . " Dislike " . $row['downvote'] . "</p>";
+
+        echo '<form action = "server.php" method = "post" id = "Upvote/Downvote">';
+        echo '<p> <button type = "submit" name =' . $row['postID'] . 'id = "upvote">Like</button>' .$row['upvote'] .
+        '<button type = "submit" name = "downvote" id = "downvote">Dislike</button>' . $row['downvote'] . '</p>';
+        echo '</form>';
+
         echo "</div>";
     }
 ?>

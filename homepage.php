@@ -1,4 +1,4 @@
-<?php 
+<?php
 	session_start(); //starting the session, to use and store data in session variable
 
 	//if the session variable is empty, this means the user is yet to login
