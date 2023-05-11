@@ -37,6 +37,7 @@
       <span class="material-symbols-outlined">menu</span> 
     </button>
     <img id = "logo" src = ".\img\kowtsi_logo.ico">
+    <!-- Dito yung display name -->
     <p><?php echo $_SESSION['username']; ?></p>
     <?php endif ?>
   </header>

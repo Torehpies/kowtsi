@@ -108,11 +108,12 @@
 		$text = mysqli_real_escape_string($db, $_POST['post']);
 		date_default_timezone_set('Asia/Manila');
 		$post_date = date("Y-m-d h:i A");
-		$query = "INSERT INTO quotes (text, dateAndTime)
-					VALUES ('$text', '$post_date')";
-				mysqli_query($db, $query);
-
-				header('location: homepage.php'); 
+		//Dito iniistore yung variable na name sa session
+		
+		$username = $_SESSION['username'];
+		$query = "INSERT INTO quotes (userID, text, dateAndTime) VALUES ('$username', '$text', '$post_date')";
+		mysqli_query($db, $query);
+		header('location: homepage.php'); 
 	}
 
 ?>
