@@ -39,7 +39,7 @@
     </button>
     <img id = "logo" src = ".\img\kowtsi_logo.ico">
     <!-- Dito yung display name -->
-    <p><?php echo $_SESSION['username']; ?></p>
+    <div class="name"><p><?php echo $_SESSION['username']; ?> </p></div>
     <?php endif ?>
   </header>
   <div class="content">

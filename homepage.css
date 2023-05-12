@@ -30,6 +30,16 @@
     border-width: 5px;
     display: flex;
     gap: 10px;
+    justify-content: space-between;
+  }
+  .name{
+    padding-top: 10px;
+    background-color: transparent;
+  }
+  .name p{
+    font-size: 40px;
+    padding-top: 10px;
+    font-family: sans-serif;
   }
   
   span{
@@ -53,7 +63,7 @@
   
   #logo{
     margin-top: 20px;
-    margin-left: 50px;
+    margin-left: -1025px;
     padding: 0;
     min-width: 48px;
     height: 48px;
@@ -172,8 +182,4 @@
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
-  }
-
-  .material-symbols-outlined {
-    font-variation-settings: 0, 400, 0, 48;
   }
