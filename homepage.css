@@ -173,3 +173,7 @@
     margin-bottom: 10px;
     border-radius: 5px;
   }
+
+  .material-symbols-outlined {
+    font-variation-settings: 0, 400, 0, 48;
+  }
