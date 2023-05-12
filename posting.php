@@ -12,14 +12,14 @@
         echo "<div class = 'test'>";
         echo "<div class = 'athr_contain'>";
         echo "<h2 class = 'author'>" . $row['userID'] . "</h2>";
-        echo "</div>";
         echo "<p class = 'datentime'>" . $row['dateAndTime'] . "</p>";
+        echo "</div>";
         echo "<h2 class = 'text'>" . $row['text'] . "</h2>";
 
         echo '<div class = "likeanddis_contain">';
         echo '<form action = "server.php" method = "post" id = "Upvote/Downvote">';
-        echo '<p class = "upvote_count">' . $row['upvote'] . '</p>' . '<button type = "submit" name =' . $row['postID'] . 'upvote' . 'id = "upvote" class = "up_vote">' . '<span class = "material-symbols-outlined">' . 'thumb_up' . '</button>' . '</span>';
-        echo '<button type = "submit" name =' . $row['postID'] . 'downvote' . 'id = "downvote" class = "down_vote">' . '<span class = "material-symbols-outlined">' . 'thumb_down' . '</button>' . '</span>' . '<p class = "downvote_count">' . $row['downvote'] . '</p>';
+        echo $row['upvote'] . '<button type = "submit" name =' . $row['postID'] . 'upvote' . 'id = "upvote" class = "up_vote">' . '<span class = "material-symbols-outlined">' . 'thumb_up' . '</button>' . '</span>';
+        echo '<button type = "submit" name =' . $row['postID'] . 'downvote' . 'id = "downvote" class = "down_vote">' . '<span class = "material-symbols-outlined">' . 'thumb_down' . '</button>' . '</span>' . $row['downvote'];
         echo '</form>';
         echo '</div>';
 
