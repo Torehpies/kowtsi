@@ -131,30 +131,53 @@
 		mysqli_query($db, $user_table);
 	}
 
-	//Kinukuha yung result sa database
 	$result = mysqli_query($db, "SELECT * FROM quotes");
+		$posts = array();
 
-	$posts = array();
+		while ($row = mysqli_fetch_array($result)) {
+			$posts[] = $row['postID'];
+		}
 
-	while ($row = mysqli_fetch_array($result)) {
-		$posts[] = $row['postID'];
-	}
-
-	for ($i = 0; $i <= sizeof($posts); $i++)
+	for ($i = 0; $i < count($posts); $i++)
 	{
-		if (isset($_POST[$posts[$i] . 'upvote' . 'id']))
+		//Kinukuha yung result sa database
+		if (isset($_POST[$posts[$i] . 'upvote' . 'id'])) 
 		{
+			$result = mysqli_query($db, "SELECT * FROM quotes");
+			$posts = array();
+
+			while ($row = mysqli_fetch_array($result)) {
+				$posts[] = $row['postID'];
+			}
+
 			$query = "UPDATE quotes SET upvote = upvote + 1 WHERE postID = '$posts[$i]'";
 			mysqli_query($db, $query);
 			header('location: homepage.php');
 		}
 
-		elseif (isset($_POST[$posts[$i] . 'downvote' . 'id']))
+		if (isset($_POST[$posts[$i] . 'downvote' . 'id']))
 		{
+			$result = mysqli_query($db, "SELECT * FROM quotes");
+			$posts = array();
+
+			while ($row = mysqli_fetch_array($result)) {
+				$posts[] = $row['postID'];
+			}
+
 			$query = "UPDATE quotes SET downvote = downvote + 1 WHERE postID = '$posts[$i]'";
 			mysqli_query($db, $query);
 			header('location: homepage.php');
 		}
+
 	}
+	
+	
+	
+
+		
+
+	
+
+	
     
 ?>
