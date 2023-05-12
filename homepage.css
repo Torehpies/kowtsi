@@ -33,15 +33,19 @@ header {
   gap: 10px;
   justify-content: space-between;
 }
+
 .name {
   max-width: 30ch;
+  margin-top: 5px;
   padding-top: 10px;
-  background-color: transparent;
+  border-radius: 30px;
 }
 .name p {
   font-size: 40px;
   padding-top: 10px;
-  font-family: sans-serif;
+  text-align: center;
+  font-family: 'Quicksand';
+  font-weight: bold;
 }
 
 span {
@@ -65,8 +69,9 @@ span {
 }
 
 #logo {
+  display: fixed;
   margin-top: 20px;
-  margin-left: -85%;
+  margin-left: -100rem;
   padding: 0;
   min-width: 48px;
   height: 48px;
@@ -148,6 +153,9 @@ span {
   height: 75px;
   text-align: center;
   border-radius: 20px;
+  font-family: 'Roboto Mono';
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 #postButton {

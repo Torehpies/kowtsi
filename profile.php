@@ -28,7 +28,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="shortcut icon" href="img/kowtsi_logo.ico" />
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
-    <link rel = "stylesheet" href = "homepage.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -122,10 +123,9 @@
             echo "<div class = 'test'>";
             echo "<div class = 'athr_contain'>";
             echo "<h2 class = 'author'>" . $_SESSION['username'] . "</h2>";
-            echo "</div>";
             echo "<p class = 'datentime'>" . "No posts yet" . "</p>";
-            echo "<h2 class = 'text'>" . "No posts yet" . "</h2>";
             echo "</div>";
+            echo "<h2 class = 'text'>" . "No posts yet" . "</h2>";
           }
 
           //Kinukuha ung bawat row at nireresult based dun sa nakuha
@@ -134,17 +134,16 @@
               echo "<div class = 'test'>";
               echo "<div class = 'athr_contain'>";
               echo "<h2 class = 'author'>" . $row['userID'] . "</h2>";
-              echo "</div>";
               echo "<p class = 'datentime'>" . $row['dateAndTime'] . "</p>";
+              echo "</div>";
               echo "<h2 class = 'text'>" . $row['text'] . "</h2>";
 
               echo '<div class = "likeanddis_contain">';
               echo '<form action = "server.php" method = "post" id = "Upvote/Downvote">';
-              echo '<p class = "upvote_count">' . $row['upvote'] . '</p>' . '<button type = "submit" name =' . $row['postID'] . 'upvote' . 'id = "upvote" class = "up_vote">' . '<span class = "material-symbols-outlined">' . 'thumb_up' . '</button>' . '</span>';
-              echo '<button type = "submit" name =' . $row['postID'] . 'downvote' . 'id = "downvote" class = "down_vote">' . '<span class = "material-symbols-outlined">' . 'thumb_down' . '</button>' . '</span>' . '<p class = "downvote_count">' . $row['downvote'] . '</p>';
+              echo $row['upvote'] . '<button type = "submit" name =' . $row['postID'] . 'upvote' . 'id = "upvote" class = "up_vote">' . '<span class = "material-symbols-outlined">' . 'thumb_up' . '</button>' . '</span>';
+              echo '<button type = "submit" name =' . $row['postID'] . 'downvote' . 'id = "downvote" class = "down_vote">' . '<span class = "material-symbols-outlined">' . 'thumb_down' . '</button>' . '</span>' . $row['downvote'];
               echo '</form>';
               echo '</div>';
-
               echo "</div>";
           }
 

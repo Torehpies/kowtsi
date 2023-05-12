@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 html{
@@ -22,15 +21,17 @@ body{
 
 header {
   height: 100px;
-  width: 100%;
+  max-width: 100%;
   background-color: #efe7e7;
   border-style: solid;
   border-left: 0px;
+  border-right: 0px;
   border-top: 0px;
   border-color: #ce7777;
   border-width: 5px;
   display: flex;
   gap: 10px;
+  justify-content: space-between;
 }
 
 span{
@@ -46,6 +47,7 @@ span{
   z-index: 3;
   background-color: #f2e5e5;
   height: 20px;
+  overflow-y: hidden;
 }
 
 #navbutton.active {
@@ -53,8 +55,9 @@ span{
 }
 
 #logo{
+  display: fixed;
   margin-top: 20px;
-  margin-left: 50px;
+  margin-right: 50px;
   padding: 0;
   min-width: 48px;
   height: 48px;
@@ -62,10 +65,6 @@ span{
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   z-index: 3;
-}
-
-#logo.active{
-  background-color: #e8c4c4;
 }
 
 #urnav {
@@ -126,9 +125,15 @@ span{
 #dp {
   height: 200px;
   min-width: 200px;
-  border-radius: 50%;
-  background-color: #2b3a55;
+  border: solid #2b3a55;
+  border-radius: 20px;
   margin: 0 10px;
+  overflow: hidden;
+}
+
+#dp img {
+  width: 100%;
+  height: 100%;
 }
 
 #profText{
@@ -140,12 +145,15 @@ span{
 #name {
   height: 50px;
   width: 60%;
+  text-align: center;
   background-color: #efe7e7;
+  border: solid #2b3a55 5px; 
   border-radius: 0% 10px 0px 0%;
   justify-content: space-between;
 } #name p {
   font-family: 'Quicksand', sans-serif;
   font-size: 25px;
+  font-weight: bold;
   padding-top: 8px;
   padding-left: 5px;
 }
@@ -153,7 +161,9 @@ span{
 #aboutuser {
   height: 160px;
   margin: 10px 0 0;
-  width: 100%;
+  width: 98%;
+  padding: 10px;
+  border: solid #2b3a55 5px;
   background-color: #efe7e7;
   border-radius: 0px 0px 25px 0px;
 }
@@ -173,4 +183,103 @@ span{
   width: 95%;
   background-color: #efe7e7;
   border-radius: 25px;
+  border: solid #2b3a55 2px;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#posting::-webkit-scrollbar {
+  display: none;
+}
+
+.athr_contain {
+  width: 15%;
+  border-radius: 15px;
+  margin-left: 10px;
+}
+
+.author {
+  color: #efe7e7;
+  font-size: 1.5rem;
+  background-color: #2b3a55;
+  font-family: "Quicksand";
+  font-weight: bold;
+  border-radius: 5px 0px 0px 0px;
+  text-align: center;
+}
+
+.datentime {
+  font-size: 20px;
+  background-color: #ce7777;
+  text-align: center;
+  font-family: "Quicksand";
+}
+
+.text {
+  text-align: center;
+  font-size: 30px;
+  font-family: "Roboto Mono";
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+
+.test {
+  max-width: 500ch;
+  padding: 10px;
+  display: block;
+  background-color: #e8c4c4;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.likeanddis_contain {
+  text-align: center;
+  min-width: 100%;
+  margin-top: 1rem;
+  background-color:  #e8c4c4;
+  margin-bottom: 10px;
+}
+
+.up_vote {
+  border-width: 0px;
+  background-color:  #e8c4c4;
+  padding-left: 10px;
+  padding-right: 10px;
+  transition: 0.4s;
+}
+
+.down_vote {
+  border-width: 0px;
+  background-color:  #e8c4c4;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/*.upvote_count {
+  float: left;
+  padding-top: 2px;
+  font-size: 1.2rem;
+  font-family: "Roboto Mono";
+  font-weight: bold;
+  margin-left: 44rem;
+}
+
+.downvote_count {
+  float: right;
+  padding-top: 2px;
+  font-size: 1.2rem;
+  font-family: "Roboto Mono";
+  font-weight: bold;
+  margin-right: 44rem;
+}*/
+
+.material-symbols-outlined {
+  font-variation-settings: 0, 400, 0, 48;
+  display: block;
+  overflow-y: hidden;
+  cursor: pointer;
 }
