@@ -13,14 +13,14 @@
     <section>
         <div class= "form-box">
             <div class="form-value">
-                <form action= "register.php" method = "post">
+                <form action= "register.php" method = "post" enctype="multipart/form-data">
 
                     <h2><div class="K"> <img src="img/kowtsi_logo.ico" width = "70px" height="70px"></div>Register</h2>
 
                     <?php include('errors.php'); ?>
 
-                    <div class = "box">
-                        <input type="file" name="register_picture">
+                    <div class = "input-box">
+                        <input type="file" name="picture">
                     </div>
 
                     <div class="input-box">

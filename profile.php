@@ -47,10 +47,64 @@
     </nav>
 
     <div id = profsection>
-      <div id = "dp"></div>
+      <div id = "dp">
+        <?php
+          // DBMS connection code -> hostname, username, password, database name
+          $db = mysqli_connect('localhost', 'root', '', 'kowtsi_db');
+
+          $username = $_SESSION['username'];
+
+          //Kinukuha yung result sa database
+          $query = "SELECT * FROM user_credentials WHERE username = '$username'";
+          $result = mysqli_query($db, $query);
+
+          $photo = "";
+
+          if ($result -> num_rows > 0)
+          {
+            while ($row = mysqli_fetch_assoc($result))
+            {
+              $photo = $row['photo'];
+            }
+          }
+
+          echo "<img src = pictures/" . $photo. " alt = Profile Picture id = profPic '>";
+        ?>
+
+      </div>
       <div id = "profText">
         <div id = "name"><p><?php echo $_SESSION['username']; ?></p></div>
-        <div id = "aboutuser"></div>
+
+        <div id = "aboutuser">
+
+          <?php
+            // DBMS connection code -> hostname, username, password, database name
+            $db = mysqli_connect('localhost', 'root', '', 'kowtsi_db');
+
+            $username = $_SESSION['username'];
+
+            //Kinukuha yung result sa database
+            $query = "SELECT * FROM user_credentials WHERE username = '$username'";
+            $result = mysqli_query($db, $query);
+            $email = "";
+            $date = "";
+
+            if ($result -> num_rows > 0)
+            {
+              while ($row = mysqli_fetch_assoc($result))
+              {
+                $email = $row['email'];
+                $date = $row['register_date'];
+              }
+            }
+
+            echo "<p>" . "Date Joined: " . $date . "</p>";
+            echo "<p>" . "Email: " . $email . "</p>";
+
+          ?>
+
+
+        </div>
       </div>
       
     </div>
@@ -62,6 +116,17 @@
 
           //Kinukuha yung result sa database
           $result = mysqli_query($db, "SELECT * FROM quotes WHERE userID = '" . $_SESSION['username'] . "' ORDER BY dateAndTime DESC");
+
+          if ($result -> num_rows == 0)
+          {
+            echo "<div class = 'test'>";
+            echo "<div class = 'athr_contain'>";
+            echo "<h2 class = 'author'>" . $_SESSION['username'] . "</h2>";
+            echo "</div>";
+            echo "<p class = 'datentime'>" . "No posts yet" . "</p>";
+            echo "<h2 class = 'text'>" . "No posts yet" . "</h2>";
+            echo "</div>";
+          }
 
           //Kinukuha ung bawat row at nireresult based dun sa nakuha
           while ($row = mysqli_fetch_assoc($result))

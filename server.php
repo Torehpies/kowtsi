@@ -15,6 +15,43 @@
 	// registration code
 	if (isset($_POST['reg_user'])) {
 
+		$file = $_FILES['picture'];
+		$fileName = $_FILES['picture']['name'];
+		$fileError = $_FILES['picture']['error'];
+		$fileSize = $_FILES['picture']['size'];
+		$fileTmpName = $_FILES['picture']['tmp_name'];
+
+		$fileExt = explode('.' , $fileName);
+		$fileActualExt = strtolower(end($fileExt));
+		$allowed = array('jpg', 'jpeg', 'png');
+
+		//Only allow the allowed
+		if (in_array($fileActualExt, $allowed))
+		{
+			if ($fileError === 0)
+			{
+				if ($fileSize < 1000000)
+				{
+					$fileNameNew = uniqid('', true).".".$fileActualExt;
+					$fileDestination = 'pictures/'.$fileName;
+					move_uploaded_file($fileTmpName, $fileDestination);
+				}
+
+				else
+				{
+					array_push($errors, "Your file is too big!");
+				}
+			}
+
+		}
+
+		else
+		{
+			array_push($errors, "Invalid file type!");
+		}
+
+
+
 		// receiving the values entered and storing in the variables
 		//data sanitization is done to prevent SQL injections
 		$username = mysqli_real_escape_string($db, $_POST['username']);
@@ -28,13 +65,9 @@
 		if (empty($email)) { array_push($errors, "Email is required"); }
 		if (empty($password_1)) { array_push($errors, "Password is required"); }
 		if (empty($_POST['password_2'])) { array_push($errors, "Confirm Password is required"); }
-		if (empty($_POST['register_picture'])) { array_push($errors, "Profile Picture is required!"); }
-
-		//Check image uploaded
-		$file = $_FILES['register_picture'];
 
 		if ($password_1 != $password_2) {
-			array_push($errors, "The two passwords do not match");
+			array_push($errors, "The two passwords do not match");				
 			//checking if the passwords match
 		}
 
@@ -64,8 +97,9 @@
           if (count($errors) == 0) {
                 $register_date = date("Y-m-d");
 				$password = md5($password_1);//password encryption to increase data security
-				$query = "INSERT INTO user_credentials(username, email, password, register_date) 
-						VALUES('$username', '$email', '$password', '$register_date')"; //inserting data into table
+				
+				$query = "INSERT INTO user_credentials(username, email, password, register_date, photo) 
+						VALUES('$username', '$email', '$password', '$register_date', '$fileName')"; //inserting data into table
 				mysqli_query($db, $query);
 
 				//storing username of the logged in user, in the session variable
@@ -156,11 +190,11 @@
 				$posts[] = $row['postID'];
 			}
 
-			$query = "UPDATE quotes SET downvote = downvote + 1 WHERE postID = '$posts[$i]'";
+			$query = "UPDATE quotes SET downvote = downvote + 1 WHERE postID = '$posts[$i] '";
 			mysqli_query($db, $query);
 			header('location: homepage.php');
 		}
-		
+
 	}
 
 

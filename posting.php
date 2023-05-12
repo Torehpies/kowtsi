@@ -22,7 +22,6 @@
         echo '<button type = "submit" name =' . $row['postID'] . 'downvote' . 'id = "downvote" class = "down_vote">' . '<span class = "material-symbols-outlined">' . 'thumb_down' . '</button>' . '</span>' . $row['downvote'];
         echo '</form>';
         echo '</div>';
-
         echo "</div>";
     }
 ?>
