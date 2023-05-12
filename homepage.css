@@ -64,7 +64,7 @@
   
   #logo{
     margin-top: 20px;
-    margin-left: -100rem;
+    margin-left: -85%;
     padding: 0;
     min-width: 48px;
     height: 48px;
@@ -178,22 +178,58 @@
     margin-bottom: 20px;
   }
 
-  .author {
-    color: black;
+  .athr_contain {
+    background-color: #2b3a55;
+    width: 15%;
+    border-radius: 15px;
+    margin-left: 10px;
   }
 
+  .author {
+    color: #efe7e7;
+    font-family: 'Quicksand';
+    font-weight: bold;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .datentime {
+    font-size: 20px;
+    opacity: 0.5;
+    margin-left: 30px;
+  }
+
+  .text {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Roboto Mono';
+    padding: 10px;
+  }
+
+
   .test {
-    width: 1600px;
+    width: 93%;
     padding: 10px;
     border: solid #ce7777 2px;
     margin-left: 40px;
     margin-top: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     border-radius: 5px;
+  }
+
+  .up_vote {
+    border-width: 0px;
+    background-color: #efe7e7;
+  }
+
+  .down_vote {
+    border-width: 0px;
+    background-color: #efe7e7;
   }
 
   .material-symbols-outlined {
     font-variation-settings: 0, 400, 0, 48;
-    border: none;
+    display: block;
     overflow-y: hidden;
+    cursor: pointer;
   }
