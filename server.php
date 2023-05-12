@@ -68,6 +68,16 @@
 				$_SESSION['success'] = "You have logged in"; //welcome message
 				header('location: homepage.php'); 
 				//page on which the user will be redirected after logging in
+
+				$make_table = "CREATE TABLE $username (
+					postID VARCHAR(30) NOT NULL,
+					text VARCHAR(1000) NOT NULL,
+					dateAndTime VARCHAR(50) NOT NULL,
+					upvote INT(6) UNSIGNED DEFAULT 0,
+					downvotevote INT(6) UNSIGNED DEFAULT 0
+					)";
+
+				$query = mysqli_query($db, $make_table);
 			}
 		}
 	}
@@ -113,7 +123,12 @@
 		$username = $_SESSION['username'];
 		$query = "INSERT INTO quotes (userID, text, dateAndTime) VALUES ('$username', '$text', '$post_date')";
 		mysqli_query($db, $query);
-		header('location: homepage.php'); 
+		header('location: homepage.php');
+		
+		
+		//Creates user table
+		$user_table = "INSERT INTO $username (text, dateAndTime) VALUES ('$text', '$post_date')";
+		mysqli_query($db, $user_table);
 	}
 
 	// DBMS connection code -> hostname, username, password, database name
