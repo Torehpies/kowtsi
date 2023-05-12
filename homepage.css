@@ -30,6 +30,16 @@
     border-width: 5px;
     display: flex;
     gap: 10px;
+    justify-content: space-between;
+  }
+  .name{
+    padding-top: 10px;
+    background-color: transparent;
+  }
+  .name p{
+    font-size: 40px;
+    padding-top: 10px;
+    font-family: sans-serif;
   }
   
   span{
@@ -54,7 +64,7 @@
   
   #logo{
     margin-top: 20px;
-    margin-left: 50px;
+    margin-left: -100rem;
     padding: 0;
     min-width: 48px;
     height: 48px;
@@ -169,7 +179,7 @@
   }
 
   .author {
-    
+    color: black;
   }
 
   .test {
