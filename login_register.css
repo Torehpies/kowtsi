@@ -98,3 +98,11 @@ p {
     margin-top: 0.5rem;
 }
 
+.box {
+    display: grid;
+    align-items: center;
+    margin-top: 5px;
+    justify-content: center;
+    
+}
+

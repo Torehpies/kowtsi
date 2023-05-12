@@ -19,10 +19,15 @@
 
                     <?php include('errors.php'); ?>
 
+                    <div class = "box">
+                        <input type="file" name="register_picture">
+                    </div>
+
                     <div class="input-box">
                         <input type="text" id = "username" name = "username" required>
                         <label for="username">Username</label>
                     </div>
+
                     <div class="input-box">
                         <input type="email" id = "email" name = "email" required>
                         <label for="email">Email</label>
