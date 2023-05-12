@@ -4,7 +4,7 @@
 	$db = mysqli_connect('localhost', 'root', '', 'kowtsi_db');
 
     //Kinukuha yung result sa database
-    $result = mysqli_query($db, "SELECT * FROM quotes");
+    $result = mysqli_query($db, "SELECT * FROM quotes ORDER BY dateAndTime DESC");
 
     //Kinukuha ung bawat row at nireresult based dun sa nakuha
     while ($row = mysqli_fetch_assoc($result))
