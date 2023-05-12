@@ -114,10 +114,10 @@
                 
                 while ($row = mysqli_fetch_assoc($userDataResults)) {
                   // Access row data
-                  $_SESSION['userID'] = $row['userID'] ;
+                  $userID = $row['userID'] ;
                 }
 
-                $userID = $_SESSION['userID']; 
+                $_SESSION['userID'] = $userID; 
 
 				//page on which the user will be redirected after logging in
   				header('location: homepage.php'); 
@@ -150,12 +150,13 @@
 			if (mysqli_num_rows($results) == 1) {
               while ($row = mysqli_fetch_assoc($results)) {
               // Access row data
-              $_SESSION['userID'] = $row['userID'] ;
-              $_SESSION['email'] = $row['email'];
+              $userID= $row['userID'] ;
+              $email = $row['email'];
               }
 
-              $userID = $_SESSION['userID'];
-              $email = $_SESSION['email'];
+              $_SESSION['username'] = $username;
+              $_SESSION['userID'] = $userID;
+              $_SESSION['email'] = $email;
 
               header('location: homepage.php'); //page on which the user is sent to after logging in
 			}else {
@@ -180,7 +181,13 @@
 		header('location: homepage.php');
     }
 
-	$result = mysqli_query($db, "SELECT * FROM quotes");
+    if (session_status() == PHP_SESSION_ACTIVE){
+      $userID = $_SESSION['userID'];
+    }
+    else{
+      $userID = "";
+    }
+    $result = mysqli_query($db, "SELECT * FROM quotes");
 	$posts = array();
 
 	while ($row = mysqli_fetch_array($result)) {
