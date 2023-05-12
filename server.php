@@ -63,6 +63,16 @@
 						VALUES('$username', '$email', '$password', '$register_date')"; //inserting data into table
 				mysqli_query($db, $query);
 
+				$make_table = "CREATE TABLE $username (
+					postID VARCHAR(30) NOT NULL,
+					text VARCHAR(1000) NOT NULL,
+					dateAndTime VARCHAR(50) NOT NULL,
+					upvote INT(6) UNSIGNED DEFAULT 0,
+					downvotevote INT(6) UNSIGNED DEFAULT 0
+					)";
+
+				$query = mysqli_query($db, $make_table);
+
 				//storing username of the logged in user, in the session variable
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You have logged in"; //welcome message
@@ -113,31 +123,48 @@
 		$username = $_SESSION['username'];
 		$query = "INSERT INTO quotes (userID, text, dateAndTime) VALUES ('$username', '$text', '$post_date')";
 		mysqli_query($db, $query);
+
+		//Query uli para dun sa table natin sa user
+		$table_query = "INSERT INTO $username (postID, text, dateAndTime) VALUES ('$username', '$text', '$post_date')";
+		mysqli_query($db, $table_query);
+		
+
 		header('location: homepage.php'); 
 	}
 
-	// DBMS connection code -> hostname, username, password, database name
-	$db = mysqli_connect('localhost', 'root', '', 'kowtsi_db');
-
-	//Kinukuha yung result sa database
-	$result = mysqli_query($db, "SELECT * FROM quotes");
-
-	$posts = array();
-
-	while ($row = mysqli_fetch_array($result)) {
-		$posts[] = $row['postID'];
-	}
-
-	for ($i = 0; $i <= sizeof($posts); $i++)
+	if (isset($_SESSION['success']))
 	{
-		if (isset($_POST[$posts[$i] . 'id']))
-		{
-			$query = "UPDATE quotes SET upvote = upvote + 1 WHERE postID = '$posts[$i]'";
-			mysqli_query($db, $query);
-			header('location: homepage.php');
+		// DBMS connection code -> hostname, username, password, database name
+		$db = mysqli_connect('localhost', 'root', '', 'kowtsi_db');
+
+		//Kinukuha yung result sa database
+		$result = mysqli_query($db, "SELECT * FROM quotes");
+
+		$posts = array();
+
+		
+
+		while ($row = mysqli_fetch_array($result)) {
+			$posts[] = $row['postID'];
 		}
 
+		for ($i = 0; $i <= sizeof($posts); $i++)
+		{
+			if (isset($_POST[$posts[$i] . 'id']))
+			{
+				$query = "UPDATE quotes SET upvote = upvote + 1 WHERE postID = '$posts[$i]'";
+				mysqli_query($db, $query);
+				header('location: homepage.php');
+			}
+		}
 	}
+
+	else
+	{
+		header('location: login.php');
+	}
+
+	
     
 	
 
