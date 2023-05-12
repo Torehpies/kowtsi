@@ -131,9 +131,6 @@
 		mysqli_query($db, $user_table);
 	}
 
-	// DBMS connection code -> hostname, username, password, database name
-	$db = mysqli_connect('localhost', 'root', '', 'kowtsi_db');
-
 	//Kinukuha yung result sa database
 	$result = mysqli_query($db, "SELECT * FROM quotes");
 
@@ -145,15 +142,19 @@
 
 	for ($i = 0; $i <= sizeof($posts); $i++)
 	{
-		if (isset($_POST[$posts[$i] . 'id']))
+		if (isset($_POST[$posts[$i] . 'upvote' . 'id']))
 		{
 			$query = "UPDATE quotes SET upvote = upvote + 1 WHERE postID = '$posts[$i]'";
 			mysqli_query($db, $query);
 			header('location: homepage.php');
 		}
 
+		elseif (isset($_POST[$posts[$i] . 'downvote' . 'id']))
+		{
+			$query = "UPDATE quotes SET downvote = downvote + 1 WHERE postID = '$posts[$i]'";
+			mysqli_query($db, $query);
+			header('location: homepage.php');
+		}
 	}
     
-	
-
 ?>

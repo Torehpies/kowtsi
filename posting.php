@@ -14,8 +14,8 @@
         echo "<h2>" . $row['text'] . "</h2>";
 
         echo '<form action = "server.php" method = "post" id = "Upvote/Downvote">';
-        echo '<button type = "submit" name =' . $row['postID'] . 'id = "upvote">' . '<span class = "material-symbols-outlined">' . 'thumb_up' . '</button>' . '</span>' . $row['upvote'];
-        echo '<button type = "submit" name =' . $row['postID'] . 'id = "upvote">' . '<span class = "material-symbols-outlined">' . 'thumb_down' . '</button>' . '</span>' . $row['downvote'];
+        echo '<button type = "submit" name =' . $row['postID'] . 'upvote' . 'id = "upvote">' . '<span class = "material-symbols-outlined">' . 'thumb_up' . '</button>' . '</span>' . $row['upvote'];
+        echo '<button type = "submit" name =' . $row['postID'] . 'downvote' . 'id = "upvote">' . '<span class = "material-symbols-outlined">' . 'thumb_down' . '</button>' . '</span>' . $row['downvote'];
         echo '</form>';
 
         echo "</div>";
