@@ -45,6 +45,7 @@
     z-index: 3;
     background-color: #f2e5e5;
     height: 20px;
+    overflow-y: hidden;
   }
   
   #navbutton.active {
@@ -152,7 +153,7 @@
     width: 95%;
     background-color: #e8c4c4;
     border: solid #ce7777 3px;
-    margin: 15px auto 0;
+    margin: 15px auto 10px;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -163,17 +164,26 @@
     background-color: #efe7e7;
     border-radius: 25px;
     padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .author {
     
   }
 
   .test {
+    width: 1600px;
     padding: 10px;
     border: solid #ce7777 2px;
-    margin-top: 10px;
+    margin-left: 40px;
+    margin-top: 5px;
     margin-bottom: 10px;
     border-radius: 5px;
   }
 
   .material-symbols-outlined {
     font-variation-settings: 0, 400, 0, 48;
+    border: none;
+    overflow-y: hidden;
   }
