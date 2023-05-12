@@ -3,11 +3,13 @@
 
 	// declaring and hoisting the variables
 	$username = "";
-	$email    = "";
+    $userID = $_SESSION['userID']; 
+    $email    = "";
+    $register_date = "";
 	$text = "";
 	$errors = array(); 
-	$post_date = "";
-	$_SESSION['success'] = "";
+    $post_date = "";
+    $row = "";
 
 	// DBMS connection code -> hostname, username, password, database name
 	$db = mysqli_connect('localhost', 'root', '', 'kowtsi_db');
@@ -101,13 +103,25 @@
 				$query = "INSERT INTO user_credentials(username, email, password, register_date, photo) 
 						VALUES('$username', '$email', '$password', '$register_date', '$fileName')"; //inserting data into table
 				mysqli_query($db, $query);
-
+                
 				//storing username of the logged in user, in the session variable
 				$_SESSION['username'] = $username;
-				$_SESSION['success'] = "You have logged in"; //welcome message
+                $_SESSION['email'] = $email;
+                
+                //Getting user data to store in session variables
+                $userDataQuery = "SELECT * FROM user_credentials WHERE username='$username'";
+             	$userDataResults = mysqli_query($db, $userDataQuery);   
+                
+                while ($row = mysqli_fetch_assoc($userDataResults)) {
+                  // Access row data
+                  $_SESSION['userID'] = $row['userID'] ;
+                }
 
-				header('location: homepage.php'); 
+                $userID = $_SESSION['userID']; 
+
 				//page on which the user will be redirected after logging in
+  				header('location: homepage.php'); 
+
 			}
 		}
 	}
@@ -134,9 +148,16 @@
 
 			// $results = 1 means that one user with the entered username exists
 			if (mysqli_num_rows($results) == 1) {
-				$_SESSION['username'] = $username; //storing username in session variable
-				$_SESSION['success'] = "You have logged in!"; //welcome message
-				header('location: homepage.php'); //page on which the user is sent to after logging in
+              while ($row = mysqli_fetch_assoc($results)) {
+              // Access row data
+              $_SESSION['userID'] = $row['userID'] ;
+              $_SESSION['email'] = $row['email'];
+              }
+
+              $userID = $_SESSION['userID'];
+              $email = $_SESSION['email'];
+
+              header('location: homepage.php'); //page on which the user is sent to after logging in
 			}else {
 				array_push($errors, "Username or password incorrect"); 
 				//if the username and password doesn't match
@@ -150,8 +171,10 @@
 		$post_date = date("Y-m-d h:i A");
 		//Dito iniistore yung variable na name sa session
 		
+        $userID = $_SESSION['userID'];
+
 		$username = $_SESSION['username'];
-		$query = "INSERT INTO quotes (userID, text, dateAndTime) VALUES ('$username', '$text', '$post_date')";
+		$query = "INSERT INTO quotes (userID, text, dateAndTime) VALUES ('$userID', '$text', '$post_date')";
 		mysqli_query($db, $query);
 
 		header('location: homepage.php');
@@ -163,49 +186,36 @@
 	while ($row = mysqli_fetch_array($result)) {
 		$posts[] = $row['postID'];
 	}
-
+    
 	for ($i = 0; $i < count($posts); $i++)
 	{
 		//Kinukuha yung result sa database
-		if (isset($_POST[$posts[$i] . 'upvote' . 'id'])) 
+		if (isset($_POST[$posts[$i] . 'upvote'])) 
 		{
-			$result = mysqli_query($db, "SELECT * FROM quotes");
-			$posts = array();
+          $likeDataResult = mysqli_query($db, "SELECT * FROM liketable WHERE postID = '$posts[$i]' AND userID = '$userID' AND like_status = 'like'");
+          if (mysqli_num_rows($likeDataResult) == 1) {
+            $deleteLike = mysqli_query($db, "DELETE FROM liketable WHERE postID = '$posts[$i]' AND userID = '$userID' AND like_status = 'like'");
+            header('location: homepage.php');
+          }
+          else{
+            $query = "INSERT INTO liketable (postID, userID, like_status) VALUES ('$posts[$i]', '$userID', 'like')";
+            mysqli_query($db, $query);
+            header('location: homepage.php');
+          }
+        }
 
-			while ($row = mysqli_fetch_array($result)) {
-				$posts[] = $row['postID'];
-			}
-
-			$query = "UPDATE quotes SET upvote = upvote + 1 WHERE postID = '$posts[$i]'";
-			mysqli_query($db, $query);
-			header('location: homepage.php');
-		}
-
-		if (isset($_POST[$posts[$i] . 'downvote' . 'id']))
+		if (isset($_POST[$posts[$i] . 'downvote']))
 		{
-			$result = mysqli_query($db, "SELECT * FROM quotes");
-			$posts = array();
-
-			while ($row = mysqli_fetch_array($result)) {
-				$posts[] = $row['postID'];
-			}
-
-			$query = "UPDATE quotes SET downvote = downvote + 1 WHERE postID = '$posts[$i] '";
-			mysqli_query($db, $query);
-			header('location: homepage.php');
+          $likeDataResult = mysqli_query($db, "SELECT * FROM liketable WHERE postID = '$posts[$i]' AND userID = '$userID' AND like_status = 'dislike'");
+          if (mysqli_num_rows($likeDataResult) == 1) {
+            $deleteLike = mysqli_query($db, "DELETE FROM liketable WHERE postID = '$posts[$i]' AND userID = '$userID' AND like_status = 'dislike'");
+            header('location: homepage.php');
+          }
+          else{
+            $query = "INSERT INTO liketable (postID, userID, like_status) VALUES ('$posts[$i]', '$userID', 'dislike')";
+            mysqli_query($db, $query);
+            header('location: homepage.php');
+          }
 		}
-
-	}
-
-
-	
-	
-	
-
-		
-
-	
-
-	
-    
+      }
 ?>
