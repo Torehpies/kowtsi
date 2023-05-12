@@ -12,19 +12,6 @@
 	// DBMS connection code -> hostname, username, password, database name
 	$db = mysqli_connect('localhost', 'root', '', 'kowtsi_db');
 
-	//Profile picture
-	if (isset($_POST['register_picture']))
-	{
-		echo "Hello World!";
-		$image = $_FILES['register_picture']['name'];
-		$image_path = "images/" . basename($image);
-		move_uploaded_file($_FILES['register_picture']['tmp_name'], $image_path);
-
-		// insert the file path into the database
-		$query = "INSERT INTO user_credentials (photo) VALUES ('$image_path')";
-
-	}
-
 	// registration code
 	if (isset($_POST['reg_user'])) {
 
@@ -42,6 +29,9 @@
 		if (empty($password_1)) { array_push($errors, "Password is required"); }
 		if (empty($_POST['password_2'])) { array_push($errors, "Confirm Password is required"); }
 		if (empty($_POST['register_picture'])) { array_push($errors, "Profile Picture is required!"); }
+
+		//Check image uploaded
+		$file = $_FILES['register_picture'];
 
 		if ($password_1 != $password_2) {
 			array_push($errors, "The two passwords do not match");
@@ -82,20 +72,8 @@
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You have logged in"; //welcome message
 
-				// Upload image
-				$image = $_FILES['register_picture']['name'];
-				$image_path = "images/" . basename($image);
-				move_uploaded_file($_FILES['register_picture']['tmp_name'], $image_path);
-
-				// insert the file path into the database
-				$query = "INSERT INTO user_credentials (photo) VALUES ('$image_path')";
-				mysqli_query($db, $query);
-
-
 				header('location: homepage.php'); 
 				//page on which the user will be redirected after logging in
-
-				
 			}
 		}
 	}
@@ -182,7 +160,7 @@
 			mysqli_query($db, $query);
 			header('location: homepage.php');
 		}
-
+		
 	}
 
 

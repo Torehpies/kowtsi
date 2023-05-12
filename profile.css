@@ -141,6 +141,13 @@ span{
   height: 50px;
   width: 60%;
   background-color: #efe7e7;
+  border-radius: 0% 10px 0px 0%;
+  justify-content: space-between;
+} #name p {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 25px;
+  padding-top: 8px;
+  padding-left: 5px;
 }
 
 #aboutuser {
