@@ -3,7 +3,7 @@
 
 	// declaring and hoisting the variables
 	$username = "";
-    $userID = $_SESSION['userID']; 
+    $userID = ""; 
     $email    = "";
     $register_date = "";
 	$text = "";
@@ -178,7 +178,7 @@
 		mysqli_query($db, $query);
 
 		header('location: homepage.php');
-	}
+    }
 
 	$result = mysqli_query($db, "SELECT * FROM quotes");
 	$posts = array();
