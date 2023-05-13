@@ -129,6 +129,23 @@
 
         $username = $_SESSION['username'];
 
+        if ($result -> num_rows == 0)
+        {
+          echo "<div class = 'test'>";
+          echo "<div class = 'athr_contain'>";
+          echo "<h2 class = 'author'>" . $username . "</h2>";
+          echo "<p class = 'datentime'>" . "No date" . "</p>";
+          echo "</div>";
+          echo "<h2 class = 'text'>" . "No posts yet." . "</h2>";
+          echo "</div>";
+
+        }
+
+        else
+        {
+
+        
+
         //Kinukuha ung bawat row at nireresult based dun sa nakuha
         while ($row = mysqli_fetch_assoc($result))
         {
@@ -148,6 +165,7 @@
             echo "</div>";
 
         }
+      }
 
 
       ?>
