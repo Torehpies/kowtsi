@@ -60,8 +60,6 @@ span {
   margin-left: 30px;
   cursor: pointer;
   border: none;
-  transition: 0.4s;
-  z-index: 4;
   background-color: #f2e5e5;
   height: 20px;
   overflow-y: hidden;
