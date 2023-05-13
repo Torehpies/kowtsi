@@ -11,6 +11,7 @@ html{
 body{
   font-family: 'Open Sans', sans-serif;
   background-color: #2b3a55;
+  padding-top: 100px;
 }
 
 .content{
@@ -20,8 +21,10 @@ body{
 }
 
 header {
+  position: fixed;
+  top: 0;
   height: 100px;
-  max-width: 100%;
+  width: 100%;
   background-color: #efe7e7;
   border-style: solid;
   border-left: 0px;
@@ -48,10 +51,6 @@ span{
   overflow-y: hidden;
 }
 
-#navbutton.active {
-  background-color: #e8c4c4;
-}
-
 #logo{
   margin-top: 20px;
   margin-left: 50px;
@@ -62,10 +61,6 @@ span{
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   z-index: 3;
-}
-
-#logo.active {
-  background-color: #e8c4c4;
 }
 
 #urnav {
@@ -109,6 +104,21 @@ span{
 
 #urnav.active {
   left: 0px;
+}
+
+#closenav {
+  height: 40px;
+  width: 40px;
+  display: block;
+  border-width: 0;
+  background-color: #e8c4c4;
+  overflow-y: hidden;
+  border-radius: 20px;
+  padding: 0;
+}
+
+#closenav:hover {
+  background-color: #ce7777;
 }
 
 #profsection {

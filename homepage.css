@@ -11,6 +11,7 @@ html {
 body {
   font-family: "Open Sans", sans-serif;
   background-color: #2b3a55;
+  padding-top: 100px;
 }
 
 .content {
@@ -20,6 +21,8 @@ body {
 }
 
 header {
+  position: fixed;
+  top: 0;
   height: 100px;
   width: 100%;
   background-color: #efe7e7;
@@ -58,41 +61,30 @@ span {
   cursor: pointer;
   border: none;
   transition: 0.4s;
-  z-index: 3;
+  z-index: 4;
   background-color: #f2e5e5;
   height: 20px;
   overflow-y: hidden;
 }
 
-#navbutton.active {
-  background-color: #e8c4c4;
-}
-
 #logo {
+  position: relative;
   margin-top: 20px;
-  margin-left: 50px;
+  margin-left: 80px;
   padding: 0;
   min-width: 48px;
   height: 48px;
   background-color: #f2e5e5;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-  z-index: 99;
-}
-
-#logo.active {
-  background-color: #e8c4c4;
 }
 
 #urnav {
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: -300px;
   height: 100%;
   width: 200px;
   background-color: #e8c4c4;
   transition: 0.4s;
-  z-index: 2;
   padding: 100px 30px;
   transition-timing-function: ease-in-out;
 }
@@ -125,6 +117,22 @@ span {
 #urnav.active {
   left: 0px;
 }
+
+#closenav {
+  height: 40px;
+  width: 40px;
+  display: block;
+  border-width: 0;
+  background-color: #e8c4c4;
+  overflow-y: hidden;
+  border-radius: 20px;
+  padding: 0;
+}
+
+#closenav:hover {
+  background-color: #ce7777;
+}
+
 
 #uploadSection {
   height: 175px;

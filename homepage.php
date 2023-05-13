@@ -47,6 +47,7 @@
   </header>
   <div class="content">
     <nav id = "urnav">
+      <button id = "closenav" onclick = "shata()"><span class="material-symbols-outlined">close</span></button>
       <a href = "homepage.php"><span class="material-symbols-outlined">home</span>Home</a>
       <a href = "profile.php"><span class="material-symbols-outlined">account_circle</span>Profile</a>
       <a href = "homepage.php?logout='1'"><span class="material-symbols-outlined">logout</span>Logout</a>
