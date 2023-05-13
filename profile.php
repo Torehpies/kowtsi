@@ -137,7 +137,7 @@
             echo "<h2 class = 'author'>" . $username . "</h2>";
             echo "<p class = 'datentime'>" . $row['dateAndTime'] . "</p>";
             echo "</div>";
-            echo "<h2 class = 'text'>" . $row['text'] . "</h2>";
+            echo "<h2 class = 'text'>" . '"' . $row['text'] . '"' . "</h2>";
 
             echo '<div class = "likeanddis_contain">';
             echo '<form action = "server.php" method = "post" id = "Upvote/Downvote">';

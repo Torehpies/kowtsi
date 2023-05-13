@@ -153,7 +153,7 @@ span{
   text-align: center;
   background-color: #efe7e7;
   border: solid #2b3a55 5px; 
-  border-radius: 0% 10px 0px 0%;
+  border-radius: 10px 10px 0px 0%;
   justify-content: space-between;
 } #name p {
   font-family: 'Quicksand', sans-serif;
@@ -170,7 +170,7 @@ span{
   padding: 10px;
   border: solid #2b3a55 5px;
   background-color: #efe7e7;
-  border-radius: 0px 0px 25px 0px;
+  border-radius: 0px 0px 25px 25px;
 }
 
 #aboutuser p {
