@@ -18,8 +18,9 @@
                     <h2><div class="K"> <img src="img/kowtsi_logo.ico" width = "70px" height="70px"></div>Register</h2>
 
                     <?php include('errors.php'); ?>
-
+                    
                     <div class = "input-box">
+                        <p>Please insert your profile picture</p>
                         <input type="file" name="picture">
                     </div>
 
