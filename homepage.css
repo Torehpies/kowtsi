@@ -30,15 +30,15 @@ header {
   border-color: #ce7777;
   border-width: 5px;
   display: flex;
-  gap: 10px;
-  justify-content: space-between;
 }
 
 .name {
   max-width: 30%;
-  margin-top: 5px;
-  padding-top: 10px;
   border-radius: 30px;
+  margin-left: auto;
+  margin-top: 10px;
+  margin-right: 30px;
+  background-color: #f2e5e5;
 }
 .name p {
   font-size: 40px;
@@ -70,7 +70,7 @@ span {
 
 #logo {
   margin-top: 20px;
-  margin-left: -100rem;
+  margin-left: 50px;
   padding: 0;
   min-width: 48px;
   height: 48px;
