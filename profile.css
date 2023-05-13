@@ -44,34 +44,28 @@ span{
   margin-left: 30px;
   cursor: pointer;
   border: none;
-  transition: 0.4s;
-  z-index: 3;
   background-color: #f2e5e5;
   height: 20px;
   overflow-y: hidden;
 }
 
 #logo{
+  position: relative;
   margin-top: 20px;
   margin-left: 50px;
   padding: 0;
   min-width: 48px;
   height: 48px;
   background-color: #f2e5e5;
-  transition-duration: 0.2s;
-  transition-timing-function: ease-in-out;
-  z-index: 3;
 }
 
 #urnav {
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: -300px;
   height: 100%;
   width: 200px;
   background-color: #e8c4c4;
-  transition: 1s;
-  z-index: 2;
   padding: 100px 30px;
   transition: 0.4s;
   transition-timing-function: ease-in-out;
