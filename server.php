@@ -181,12 +181,10 @@
 		header('location: homepage.php');
     }
 
-    if (session_status() == PHP_SESSION_ACTIVE){
-      $userID = $_SESSION['userID'];
-    }
-    else{
-      $userID = "";
-    }
+	
+
+    
+
     $result = mysqli_query($db, "SELECT * FROM quotes");
 	$posts = array();
 
@@ -199,6 +197,13 @@
 		//Kinukuha yung result sa database
 		if (isset($_POST[$posts[$i] . 'upvote'])) 
 		{
+			if (session_status() == PHP_SESSION_ACTIVE){
+				$userID = $_SESSION['userID'];
+			  }
+			  else{
+				$userID = "";
+			  }
+
           $likeDataResult = mysqli_query($db, "SELECT * FROM liketable WHERE postID = '$posts[$i]' AND userID = '$userID' AND like_status = 'like'");
           if (mysqli_num_rows($likeDataResult) == 1) {
             $deleteLike = mysqli_query($db, "DELETE FROM liketable WHERE postID = '$posts[$i]' AND userID = '$userID' AND like_status = 'like'");
@@ -213,6 +218,13 @@
 
 		if (isset($_POST[$posts[$i] . 'downvote']))
 		{
+			if (session_status() == PHP_SESSION_ACTIVE){
+				$userID = $_SESSION['userID'];
+			  }
+			  else{
+				$userID = "";
+			  }
+			  
           $likeDataResult = mysqli_query($db, "SELECT * FROM liketable WHERE postID = '$posts[$i]' AND userID = '$userID' AND like_status = 'dislike'");
           if (mysqli_num_rows($likeDataResult) == 1) {
             $deleteLike = mysqli_query($db, "DELETE FROM liketable WHERE postID = '$posts[$i]' AND userID = '$userID' AND like_status = 'dislike'");
