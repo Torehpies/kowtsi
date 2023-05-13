@@ -55,9 +55,8 @@ span{
 }
 
 #logo{
-  display: fixed;
   margin-top: 20px;
-  margin-right: 50px;
+  margin-right: 20px;
   padding: 0;
   min-width: 48px;
   height: 48px;
@@ -166,6 +165,12 @@ span{
   border: solid #2b3a55 5px;
   background-color: #efe7e7;
   border-radius: 0px 0px 25px 0px;
+}
+
+#aboutuser p {
+  font-family: 'Quicksand';
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 #postsection {
