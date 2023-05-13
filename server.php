@@ -169,7 +169,7 @@
 	if (isset($_POST['post_user'])) {
 		$text = mysqli_real_escape_string($db, $_POST['post']);
 		date_default_timezone_set('Asia/Manila');
-		$post_date = date("Y-m-d h:i A");
+		$post_date = date("Y-m-d h:i:s");
 		//Dito iniistore yung variable na name sa session
 		
         $userID = $_SESSION['userID'];
