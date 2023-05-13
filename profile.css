@@ -178,7 +178,7 @@ span{
   width: 95%;
   background-color: #e8c4c4;
   border: solid #ce7777 3px;
-  margin: 15px auto 0;
+  margin: 15px auto 10px;
   display: flex;
   justify-content: center;
   align-content: center;

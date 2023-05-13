@@ -43,7 +43,6 @@
     <nav id = "urnav">
       <a href = "homepage.php"><span class="material-symbols-outlined">home</span>Home</a>
       <a href = "profile.php"><span class="material-symbols-outlined">account_circle</span>Profile</a>
-      <a href = "Notif"><span class="material-symbols-outlined">notifications</span>Notifications</a>
       <a href = "homepage.php?logout='1'"><span class="material-symbols-outlined">logout</span>Logout</a>
     </nav>
 
