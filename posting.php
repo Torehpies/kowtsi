@@ -15,7 +15,7 @@
     {
         echo "<div class = 'test'>";
         echo "<div class = 'athr_contain'>";
-        echo "<h2 class = 'author'>" . $row['userID'] . "</h2>";
+        echo "<h2 class = 'author'>Anonymous". "</h2>";
         echo "<p class = 'datentime'>" . $row['dateAndTime'] . "</p>";
         echo "</div>";
         echo "<h2 class = 'text'>" . $row['text'] . "</h2>";

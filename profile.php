@@ -127,12 +127,14 @@
           GROUP BY quotes.postID, quotes.text, quotes.userID, quotes. dateAndTime
           ORDER BY dateAndTime DESC;");
 
+        $username = $_SESSION['username'];
+
         //Kinukuha ung bawat row at nireresult based dun sa nakuha
         while ($row = mysqli_fetch_assoc($result))
         {
             echo "<div class = 'test'>";
             echo "<div class = 'athr_contain'>";
-            echo "<h2 class = 'author'>" . $row['userID'] . "</h2>";
+            echo "<h2 class = 'author'>" . $username . "</h2>";
             echo "<p class = 'datentime'>" . $row['dateAndTime'] . "</p>";
             echo "</div>";
             echo "<h2 class = 'text'>" . $row['text'] . "</h2>";
