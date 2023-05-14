@@ -1,8 +1,9 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: 'poppins',sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
+
 body{
     background: #E8C4C4;
 }
@@ -18,7 +19,7 @@ section{
 .form-box{
     position: relative;
     width: 400px;
-    height: 450px;
+    min-height: 570px;
     background: #E8C4C4;
     display: flex;
     justify-content: center;
@@ -39,6 +40,7 @@ h2{
 }
 .input-box label{
     position: absolute;
+    font-weight: 600;
     top: 50%;
     left: 5px;
     transform: translateY(-50%);
@@ -49,9 +51,11 @@ h2{
 }
 input:focus ~ label,
 input:valid ~ label{
-top: -5px;
+    top: -5px;
+    font-size: .9em;
 }
 .input-box input{
+  font-weight: 1000;
     width: 100%;
     height: 50px;
     background: transparent;
@@ -59,9 +63,9 @@ top: -5px;
     outline: none;
     font-size: 1em;
     padding:0 35px 0 5px;
-    color: #fff;
-
+    color: #2B3A55; 
 }
+
 .input-box ion-icon{
     position: absolute;
     right: 8px;
@@ -88,8 +92,17 @@ button{
 
 p {
     color: #2B3A55;
-    font-size: 0.8em;
+    font-weight: 800;
+    font-size: .9em;
     text-align: center;
     margin-top: 0.5rem;
+}
+
+.box {
+    display: grid;
+    align-items: center;
+    margin-top: 5px;
+    justify-content: center;
+    
 }
 
