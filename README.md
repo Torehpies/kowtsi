@@ -9,5 +9,4 @@ Salupado, Seiffer Charles S.
 Benig, Ezedrex Jo A.
 Cristobal, Genrey
 Lonoza, Joshua
-Noquera, Princess Gerie Mae
 -------------------
